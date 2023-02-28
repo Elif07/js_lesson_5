@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 13</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <header class="header">
+      </header>
+      <main class="page">
+         <h1>Задача 13</h1>
+         <p>. Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач
+         намагається потопити корабель.</p>
+         <script>
+          // Розмір поля
+            let n = 10;
+            let m = 10;
+
+            // Кількість снарядів
+            let k = parseInt(prompt("Введіть кількість снарядів)")) 
+
+            // Розташування корабля (випадкове)
+            let shipX = Math.floor(Math.random() * n);
+            let shipY = Math.floor(Math.random() * m);
+
+            // Гра
+            while (k > 0) {
+               // Запитати користувача, куди він хоче випустити снаряд
+               let x = parseInt(prompt("Введіть номер рядка (від 1 до " + n + ")"))
+               let y = parseInt(prompt("Введіть номер стовпця (від 1 до " + m + ")")) 
+
+               // Перевірити, чи потрапив користувач
+               if (x - 1 === shipX && y - 1 === shipY) {
+                  alert("Ви потопили корабель! Ви виграли!");
+                  break;
+               } else {
+                  alert("Промах! Спробуйте ще раз.");
+                  k--;
+               }
+
+               // Перевірити, чи закінчилися снаряди
+               if (k === 0) {
+                  alert("Ви вичерпали всі снаряди! Ви програли.");
+                  break;
+               }
+            }
+         </script>
+      </main>
+      <footer class="footer">
+      </footer>
+   </div>
+   <!-- <script src="js/script.js">
+   </script> -->
+</body>
+
+</html>

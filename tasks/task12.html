@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 12</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <header class="header">
+      </header>
+      <main class="page">
+         <h1>Задача 12</h1>
+         <p>Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з чотирьох
+         зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три других – 200, три
+         третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за номером).</p>
+         <script>
+            //вводимо дані
+           let randomNumber1 = Math.floor(Math.random() * 4) + 1; // Випадкове число від 1 до 4
+            let randomNumber2 = Math.floor(Math.random() * 4) + 1;
+            let randomNumber3 = Math.floor(Math.random() * 4) + 1;
+
+            // Задаємо зображення для кожного номеру
+            let imageTemp = ''
+            for (let i = 0; i < 3; i++) {
+               let image
+               switch (i) {
+                  case 0:
+                     image = randomNumber1
+                     break;
+                  case 1:
+                     image = randomNumber2
+                     break;
+                  case 2:
+                     image = randomNumber3
+                     break;
+               }
+               imageTemp +=  `<img src="../img/${image}.jpeg" width="150">`
+            }
+            // Перевіряємо виграш
+            let winners = 0
+            if (randomNumber1 === randomNumber2 && randomNumber2 === randomNumber3) {
+               switch (randomNumber1) {
+                  case 1:
+                     winners = `Ви виграли ${100} грн`
+                     break;
+                  case 2:
+                     winners = `Ви виграли ${200} грн`
+                     break;
+                  case 3:
+                     winners = `Ви виграли ${500} грн`
+                     break;
+                  case 4:
+                     winners = `Ви виграли ${1000} грн`
+                     break;
+               }
+               
+            } else winners = `Нажаль, ви не виграли`
+              // Виводимо зображення
+            document.write(` ${imageTemp}`);
+            document.write(` ${winners}`); 
+         </script>
+     
+      </main>
+      <footer class="footer">
+      </footer>
+   </div>
+   <!-- <script src="js/script.js">
+   </script> -->
+</body>
+
+</html>
